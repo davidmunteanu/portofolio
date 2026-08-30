@@ -2,7 +2,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Munteanu David-Ioan</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -10,8 +9,10 @@
     <meta property="og:image" content="https://davidmunteanu.com/src/profile.png">
     <style>
         body {
-            background-image: url('src/background2.jpg'); 
+            background-image: url('src/background2.jpg');
             background-size: cover;
+            background-attachment: fixed;
+            background-color: #0a0a0f;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -22,10 +23,11 @@
             font-weight: 300;
             font-style: normal;
             padding-bottom: 1.5rem;
-            justify-content: center;
-            min-height: 100vh;
+            padding-top: 1.5rem;
             margin: 0px;
             box-sizing: border-box;
+            height: 100vh;
+            overflow: hidden;
         }
 
         h1, h2, h3{
@@ -114,8 +116,6 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            height: 200px;
-            overflow-y: auto;
         }
 
         /* Tech Pills Styling */
@@ -143,33 +143,180 @@
             opacity: 0.9;
         }
 
-        .proj-container::-webkit-scrollbar {
-            width: 6px;
+
+        .exp-card {
+            display: flex;
+            flex-direction: row;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
         }
 
-        .proj-container::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
+        .exp-img {
+            width: 140px;
+            flex-shrink: 0;
+            object-fit: cover;
         }
 
-        .proj-container::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
+        .exp-card-content {
+            padding: 1.5rem;
+            flex: 1;
+            min-width: 0;
         }
 
-        .proj-container::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.3);
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
         }
 
-        /* Firefox */
-        .proj-container {
+        .exp-role {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .exp-company {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 0.15rem;
+        }
+
+        .exp-meta {
+            text-align: right;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            flex-shrink: 0;
+        }
+
+        .exp-bullets {
+            margin: 0;
+            padding-left: 1.2rem;
+            font-size: 0.85rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .exp-bullets li + li {
+            margin-top: 0.5rem;
+        }
+
+        .proj.proj-no-img {
+            min-height: auto;
+        }
+
+        .proj-label {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            font-style: italic;
+            margin-bottom: 0.3rem;
+        }
+
+        .achievement-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .achievement-item {
+            display: flex;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .achievement-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .achievement-date {
+            flex-shrink: 0;
+            width: 5rem;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            font-weight: 500;
+        }
+
+        .achievement-text {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .achievement-text strong {
+            font-weight: 500;
+        }
+
+        .block-tabbed {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .tab-bar {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 0;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .tab-btn.active {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .tab-panel {
+            display: none;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .tab-panel.active {
+            display: flex;
+        }
+
+        .tab-content {
+            flex: 1;
+            overflow-y: auto;
+            min-height: 0;
             scrollbar-width: thin;
             scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
         }
 
-        .proj-container {
-            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+        .tab-content::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .tab-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .tab-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
         }
 
         @media screen and (max-width: 768px) {
@@ -185,7 +332,7 @@
             }
 
             /* Center the social links on mobile */
-            .block div[style*="display: flex; gap: 0.6rem"] {
+            .block div[style*="display: flex; gap: 0.4rem"] {
                 justify-content: center;
             }
 
@@ -200,18 +347,54 @@
                 height: 200px;
             }
 
-            .proj-container {
-                height: auto; /* Allow the container to grow instead of scrolling internally */
-                overflow-y: visible;
-            }
-
             .proj-content {
                 padding: 1rem;
             }
 
-            /* Ensure buttons and actions align better on small screens */
             .proj-actions {
                 justify-content: center;
+            }
+
+            .exp-card {
+                flex-direction: column;
+            }
+
+            .exp-img {
+                width: 100%;
+                height: 160px;
+            }
+
+            .exp-header {
+                flex-direction: column;
+            }
+
+            .exp-meta {
+                text-align: left;
+                margin-top: 0.25rem;
+            }
+
+            .achievement-item {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .achievement-date {
+                width: auto;
+            }
+
+            .tab-btn {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.6rem;
+            }
+
+            body {
+                height: auto;
+                min-height: 100vh;
+                overflow: auto;
+            }
+
+            .block-tabbed {
+                min-height: 400px;
             }
         }
     </style>
@@ -221,63 +404,172 @@
         <div style = "display: flex; flex-direction: row; gap: 1rem">
             <div style = "display: flex; flex-direction:column; justify-content: space-between">
                 <h1>Munteanu David-Ioan</h1>
-                <p><b>Student & Research Assistant | BSc. CSE @ TU Delft</b> <br> Building high-availability systems and leading engineering teams. Focused on web & software <b>architectures</b> and <b>LLM</b> integration.</p>
+                <p><b>Student & Research Assistant | BSc. CSE @ TU Delft</b> <br> Second-year CS student, builder, and lifelong tech nerd with a track record of leading teams and shipping ideas.</p>
                 <div style = "display: flex; gap: 0.4rem">
                     <a href = "https://github.com/davidmunteanu" target="_blank"><img style = "height: 28px; border-radius: 6px; border: 2px solid transparent" src = "src/github_logo.png?v=2"></a>
                     <a href = "https://www.linkedin.com/in/davidmunteanu/" target="_blank"><img style = "height: 28px; border-radius: 6px; border: 2px solid transparent" src = "src/linkedin_logo.png?v=2"></a>
-                    <a href = "src/CV_DavidMunteanu_05July.pdf" target="_blank"><img style = "height: 28px; border-radius: 6px; border: 2px solid rgb(0, 179, 255)" src = "src/cv_logo.png?v=2"></a>
+                    <a href = "src/CV_Aug30.pdf" target="_blank"><img style = "height: 28px; border-radius: 6px; border: 2px solid rgb(0, 179, 255)" src = "src/cv_logo.png?v=2"></a>
                     <a href = "mailto:davidmunteanu2006@gmail.com" target="_blank"><img style = "height: 28px; border-radius: 6px; border: 2px solid transparent" src = "src/mail_logo.png"></a>
                 </div>
             </div>
             <img src = "src/profile.png" style = "width: 160px; height: 160px; border-radius: 10px">
         </div>
     </div>
-    
-    <div class="block">
-        <h2>CS Projects</h2>
-        <div class="proj-container">
-            <div class="proj">
-                <img class="proj-img" src="src/project/spotipy.png" alt="Spotyvibe Preview">
-                <div class="proj-content">
-                    <div class="proj-text">
-                        <h3>Spotyvibe</h3>
-                        <p>A Flask application to map Spotify listening history to emotional archetypes, using GeminiAPI for analysis.</p>
-                        <div class="proj-tech">
-                            <span class="tech-tag">Python (Flask)</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Gemini API</span>
-                            <span class="tech-tag">Gunicorn</span>
+
+    <div class="block block-tabbed">
+        <div class="tab-bar">
+            <button class="tab-btn active" data-tab="experience">Experience</button>
+            <button class="tab-btn" data-tab="projects">CS Projects</button>
+            <button class="tab-btn" data-tab="beyond">Beyond Code</button>
+        </div>
+
+        <div class="tab-panel active" id="tab-experience">
+            <div class="tab-content">
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="exp-card">
+                        <img class="exp-img" src="src/experience/uip-img.png" alt="UiPath">
+                        <div class="exp-card-content">
+                            <div class="exp-header">
+                                <div>
+                                    <div class="exp-role">Agentic Developer Intern</div>
+                                    <div class="exp-company">UiPath</div>
+                                </div>
+                                <div class="exp-meta">Jul 2026 – Present<br>Bucharest</div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Delivered end-to-end implementations across 3 international client projects (airline ops, law enforcement, insurance), combining RPA, AI agents, and database-integrated dashboards.</li>
+                                <li>Hosted client and director meetings solo when senior engineers were unavailable; negotiated MVP scope with the UK insurance clients and built targeted mock-ups for Turkish airline intermediaries to bridge the gap between the dev-team and business.</li>
+                                <li>Architected a fully local AI speech-to-text and text-to-speech pipeline for a police agency, designed for multi-department deployment.</li>
+                            </ul>
                         </div>
                     </div>
-                    <div>
-                        <a href="https://github.com/davidmunteanu/Spotyvibe" target="_blank">
-                            <img style = "height: 28px; border-radius: 6px; border: 2px solid transparent" class="icon-gh" src="src/github_logo.png?v=2" alt="GitHub">
-                        </a>
+                    <div class="exp-card">
+                        <img class="exp-img" src="src/experience/aiguard-img.png" alt="TU Delft">
+                        <div class="exp-card-content">
+                            <div class="exp-header">
+                                <div>
+                                    <div class="exp-role">Research Assistant</div>
+                                    <div class="exp-company">The Human Quotient Lab @ TU Delft</div>
+                                </div>
+                                <div class="exp-meta">Mar 2026 – Present<br>Delft</div>
+                            </div>
+                            <ul class="exp-bullets">
+                                <li>Researching adversarial LLM pen-testing — agentic attacker vs. defender chatbot — applying game theory and manipulation-topology techniques; currently authoring a paper.</li>
+                                <li>Built a plug-and-play framework for model-vs-model evaluation using dual vLLM & Ollama backends.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-
-            <div class="proj">
-                <img class="proj-img" src="src/project/foodpal.png" alt="FoodPal Architecture">
-                <div class="proj-content">
-                    <div class="proj-text">
-                        <h3>FoodPal (Uni Project)</h3>
-                        <p class="proj-desc-alt">A multi-module Java/ Spring Boot application, managing the full-stack integration of JavaFX and Spring with H2 persistence for a recipe sharing and nutrient tracking platform. </p>
-                        <div class="proj-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">H2</span>
-                            <span class="tech-tag">CI/CD</span>
-                            <span class="tech-tag">JavaFx</span>
-                            <span class="tech-tag">mvn</span>
+        <div class="tab-panel" id="tab-projects">
+            <!-- <img class="tab-img" src="src/projects-img.jpg" alt=""> -->
+            <div class="tab-content">
+                <div class="proj-container">
+                    <div class="proj">
+                        <img class="proj-img" src="src/project/spotipy.png" alt="Spotyvibe Preview">
+                        <div class="proj-content">
+                            <div class="proj-text">
+                                <h3>Spotyvibe</h3>
+                                <p>A Flask application to map Spotify listening history to emotional archetypes, using GeminiAPI for analysis.</p>
+                                <div class="proj-tech">
+                                    <span class="tech-tag">Python (Flask)</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">Gemini API</span>
+                                    <span class="tech-tag">Gunicorn</span>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="https://github.com/davidmunteanu/Spotyvibe" target="_blank">
+                                    <img style="height: 28px; border-radius: 6px; border: 2px solid transparent" class="icon-gh" src="src/github_logo.png?v=2" alt="GitHub">
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="proj-actions">
-                        <span style="font-size: 0.75rem; opacity: 0.6; font-style: italic;">Codebase restricted by TU Delft</span>
+
+                    <div class="proj">
+                        <img class="proj-img" src="src/project/foodpal.png" alt="FoodPal Architecture">
+                        <div class="proj-content">
+                            <div class="proj-text">
+                                <h3>FoodPal</h3>
+                                <p class="proj-desc-alt">Led a 6-person team to build a multi-module Java/Spring Boot application — a recipe sharing and nutrient tracking platform with JavaFX frontend and H2 persistence.</p>
+                                <div class="proj-tech">
+                                    <span class="tech-tag">Java</span>
+                                    <span class="tech-tag">Spring Boot</span>
+                                    <span class="tech-tag">JavaFX</span>
+                                    <span class="tech-tag">CI/CD</span>
+                                    <span class="tech-tag">H2</span>
+                                </div>
+                            </div>
+                            <div class="proj-actions">
+                                <span style="font-size: 0.75rem; opacity: 0.6; font-style: italic;">Codebase restricted by TU Delft</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="proj proj-no-img">
+                        <div class="proj-content">
+                            <div class="proj-text">
+                                <div class="proj-label">AI Guild Hackathon, Feb 2026</div>
+                                <h3>Document Analyzer</h3>
+                                <p>Built a containerized local LLM document analyser (Ollama/Node.js) for high-privacy research environments at a hackathon, in a team of 6.</p>
+                                <div class="proj-tech">
+                                    <span class="tech-tag">Ollama</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="proj proj-no-img">
+                        <div class="proj-content">
+                            <div class="proj-text">
+                                <div class="proj-label">Mar – May 2026</div>
+                                <h3>AI Cup (Team Epoch)</h3>
+                                <p>Classification model to identify 9 bird species from radar data to mitigate bird-strike risks at windfarms. Ensemble of XGBoost and Random Forest on high-dimensional radar telemetry.</p>
+                                <div class="proj-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">XGBoost</span>
+                                    <span class="tech-tag">Random Forest</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-beyond">
+            <!-- <img class="tab-img" src="src/beyond-img.jpg" alt=""> -->
+            <div class="tab-content">
+                <div class="achievement-list">
+                    <div class="achievement-item">
+                        <div class="achievement-date">Jun 2024</div>
+                        <div class="achievement-text"><strong>CERN HSSIP-RO</strong> — Selected as one of 24 students from Romania for a 2-week program at CERN, Geneva. Presented antimatter research.</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-date">2022 – 2023</div>
+                        <div class="achievement-text"><strong>NSS Space Settlement Contest</strong> — 2nd place (10th grade) and 4th place (11th grade) out of 5,000+ global entries. Presented at ISDC in Texas and California.</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-date">Mar 2023</div>
+                        <div class="achievement-text"><strong>Dr Randall Perry Quiet Leadership Award</strong> — Central lead for a 28-member international team at the European Space Design Competition.</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+                document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+                btn.classList.add('active');
+                document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
 </body>
